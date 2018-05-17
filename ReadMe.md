@@ -110,6 +110,8 @@ Broker로의 읽기(수신)/쓰기(송신)는 어쨓든 빠르다. LinkedIn 벤�
 ## ref
 * Apache Kafka 입문
   * https://deeeet.com/writing/2015/09/01/apache-kafka/
+* Scala로 KAFKA
+  * https://github.com/smallnest/kafka-example-in-scala
 * GO로 KAFKA
   * https://github.com/vsouza/go-kafka-example
 * 사용하기

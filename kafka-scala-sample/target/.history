@@ -1,0 +1,11 @@
+compile
+run
+run 10000 viva localhost:9092
+quit
+:quit
+:exit
+exit
+compile
+run
+quit
+exit
