@@ -16,6 +16,10 @@ object ScalaProducerExample extends App {
   props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer")
 
 
+  println(args(0))
+  println(args(1))
+  println(args(2))
+
   val producer = new KafkaProducer[String, String](props)
   val t = System.currentTimeMillis()
   for (nEvents <- Range(0, events)) {
@@ -27,9 +31,11 @@ object ScalaProducerExample extends App {
     //async
     //producer.send(data, (m,e) => {})
     //sync
+    println(data)
     producer.send(data)
   }
 
   System.out.println("sent per second: " + events * 1000 / (System.currentTimeMillis() - t))
+  producer.flush()
   producer.close()
 }

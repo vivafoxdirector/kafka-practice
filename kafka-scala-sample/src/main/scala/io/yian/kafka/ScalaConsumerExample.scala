@@ -37,13 +37,15 @@ class ScalaConsumerExample(val brokers: String,
   }
 
   def run() = {
+    println("run....." + this.topic)
     consumer.subscribe(Collections.singletonList(this.topic))
 
     Executors.newSingleThreadExecutor.execute(    new Runnable {
       override def run(): Unit = {
+        println("executed....")
         while (true) {
-          val records = consumer.poll(1000)
-
+          val records = consumer.poll(500)
+          println("=---------")
           for (record <- records) {
             System.out.println("Received message: (" + record.key() + ", " + record.value() + ") at offset " + record.offset())
           }

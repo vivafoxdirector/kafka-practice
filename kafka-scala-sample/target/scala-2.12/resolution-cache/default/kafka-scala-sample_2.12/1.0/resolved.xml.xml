@@ -4,7 +4,7 @@
 		module="kafka-scala-sample_2.12"
 		revision="1.0"
 		status="integration"
-		publication="20180518002202"
+		publication="20180518002702"
 	>
 		<description>
 		kafka-scala-sample
