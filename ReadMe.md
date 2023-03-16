@@ -110,6 +110,12 @@ Broker로의 읽기(수신)/쓰기(송신)는 어쨓든 빠르다. LinkedIn 벤�
 ## ref
 * Apache Kafka 입문
   * https://deeeet.com/writing/2015/09/01/apache-kafka/
+  * https://zenn.dev/amezousan/scraps/7df6c1d21d8600
+  * https://oss.nttdata.com/kafka/kafka.html <===
+  * https://qiita.com/keikesu0122/items/48be51a65d34d90c11e9
+* Apache Kafka 아키
+  * https://qiita.com/sigmalist/items/5a26ab519cbdf1e07af3
+  * https://openstandia.jp/solution/kafka/
 * Scala로 KAFKA
   * https://github.com/smallnest/kafka-example-in-scala
 * GO로 KAFKA
@@ -120,3 +126,7 @@ Broker로의 읽기(수신)/쓰기(송신)는 어쨓든 빠르다. LinkedIn 벤�
   * https://adtech.cyberagent.io/scalablog/2015/07/17/kafka%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%81%E3%83%A3%E3%83%83%E3%83%88%E3%83%84%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%BE%E3%81%97%E3%81%9F/
   * https://qiita.com/bwtakacy/items/d1345e10d2adbd4b4431
   * https://qiita.com/ttsubo/items/3ae7ee8b34bb62879613
+
+* zookeeper
+  * https://qiita.com/szit/items/aec0ce677a28c83c6893
+  * https://nobutaka-saito.hatenadiary.jp/entry/2018/01/20/173610
