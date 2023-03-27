@@ -4,7 +4,7 @@
 		module="kafka-scala-sample$sources"
 		revision="1.0"
 		status="integration"
-		publication="20180518002812"
+		publication="20230322173435"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

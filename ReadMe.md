@@ -107,11 +107,27 @@ Broker로의 읽기(수신)/쓰기(송신)는 어쨓든 빠르다. LinkedIn 벤�
 ## 정리
 앞서 소개한 논문 "[Building LinkedIn’s Real-time Activity Data Pipeline](http://sites.computer.org/debull/A12june/pipeline.pdf)"에는 별도로 Kafka의 재미있는 부분도 많이 기술되어 있기 때문에 Kafka를 사용하려는 사람은 꼭한번 읽어보시라...
 
+
+
+# 참조사이트
+
+## 강좌(20230327)
+1. 아키텍처 & 튜닝포인트
+- [Apache Kafkaの概要とアーキテクチャ](https://qiita.com/sigmalist/items/5a26ab519cbdf1e07af3)
+- [아키텍처문서PDF](https://www.ospn.jp/osc2017.enterprise/pdf/OSC2017.enterprise_Hitachi_Kafka.pdf)
+
+2. 실습
+- [KafkaをローカルのDocker環境で、さくっと動かしてみました 　第１回](https://qiita.com/turupon/items/12268ddb95ecd7b7ae07)
+- [KafkaをローカルのDocker環境で、さくっと動かしてみました 　第２回](https://qiita.com/turupon/items/59eb602766a38bc3b621)
+
 ## ref
+* 동영상
+  * https://www.youtube.com/watch?v=5LYnEDB6UOA&ab_channel=OSPN.jp
 * Apache Kafka 입문
   * https://deeeet.com/writing/2015/09/01/apache-kafka/
   * https://zenn.dev/amezousan/scraps/7df6c1d21d8600
   * https://oss.nttdata.com/kafka/kafka.html <===
+  * https://ibm.github.io/japan-technology/Code-Articles/event-streams-kafka-fundamentals/ <====
   * https://qiita.com/keikesu0122/items/48be51a65d34d90c11e9
 * Apache Kafka 아키
   * https://qiita.com/sigmalist/items/5a26ab519cbdf1e07af3
@@ -125,8 +141,12 @@ Broker로의 읽기(수신)/쓰기(송신)는 어쨓든 빠르다. LinkedIn 벤�
   * https://gist.github.com/fancellu/f78e11b1808db2727d76
   * https://adtech.cyberagent.io/scalablog/2015/07/17/kafka%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%81%E3%83%A3%E3%83%83%E3%83%88%E3%83%84%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%BE%E3%81%97%E3%81%9F/
   * https://qiita.com/bwtakacy/items/d1345e10d2adbd4b4431
-  * https://qiita.com/ttsubo/items/3ae7ee8b34bb62879613
+
+  - [Mac OS X環境で、Apache Kafkaの基本動作を試してみる](https://qiita.com/ttsubo/items/97f3ccfb1812635479a5)
+  - [Apache Kafkaのクラスタ構成を試してみる](https://qiita.com/ttsubo/items/3ae7ee8b34bb62879613)
 
 * zookeeper
   * https://qiita.com/szit/items/aec0ce677a28c83c6893
   * https://nobutaka-saito.hatenadiary.jp/entry/2018/01/20/173610
+
+
