@@ -83,7 +83,12 @@ https://docs.confluent.io/platform/current/platform-quickstart.html#quick-start-
   $ docker network inspect iot_network
   ```
 
-## Kafka 기동
+## Kafka 기본기동
+1. topic 작성
+2. Consumer 작성
+3. Producer 작성
+4. Consumer & Producer 메시지 송수신 확인
+
 ### topic 작성
 * 컨테이너 확인
   ```s
@@ -133,8 +138,15 @@ https://docs.confluent.io/platform/current/platform-quickstart.html#quick-start-
 
   ```
 
+## Kafka 응용
+위 기본적인 동작을 기반으로 응용하는 방법에 대해서 알아본다.
 
-  
+### 토픽 작성
+```s
+$ 
+```
+
+
 # 참조사이트
 ## 강좌(20230327)
 1. 아키텍처 & 튜닝포인트
