@@ -66,7 +66,7 @@ https://docs.confluent.io/platform/current/platform-quickstart.html#quick-start-
   ```
 
 * 컨테이너 작성 및 확인
-  ```sh
+  ```s
   # 컨테이너 빌드
   $ docker-compse up -d
 
@@ -79,7 +79,7 @@ https://docs.confluent.io/platform/current/platform-quickstart.html#quick-start-
   ```
 
 * 컨테이너 네트워크 정보 확인
-  ```
+  ```s
   $ docker network inspect iot_network
   ```
 
@@ -135,7 +135,6 @@ https://docs.confluent.io/platform/current/platform-quickstart.html#quick-start-
   /> kafka-console-consumer --bootstrap-server broker:29092 --topic sample-topic --group G1 --from-beginning
   > Hello world
   > Good Good Good !!!
-
   ```
 
 ## Kafka 응용
