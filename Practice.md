@@ -210,6 +210,30 @@ faker
 kafka-python
 ```
 
+### Producer 컨테이너 작성 및 확인
+1. 컨테이너 기동
+```s
+# 기동
+$ docker-compose up -d
+
+# 확인
+$ docker-compose ps
+
+# 모든 컨테이너 확인
+$ docker ps 
+```
+
+### Consumer 메시지 수신 설정
+1. Consumer 설정
+```s
+# cli 컨테이너 접속
+$ docker exec -it cli /bin/bash
+/>
+
+# Consumer로서 메시지 수신 설정
+/> kafka-console-consumer --bootstrap-server broker:29092 --topic topic-01 --group G1 --from-beginning
+```
+
 # 참조사이트
 ## 강좌(20230327)
 1. 아키텍처 & 튜닝포인트
@@ -221,6 +245,10 @@ kafka-python
 - [KafkaをローカルのDocker環境で、さくっと動かしてみました 　第２回](https://qiita.com/turupon/items/59eb602766a38bc3b621)
 
 - [Apache Kafkaとは](https://zenn.dev/gekal/articles/kafka-env-for-local-developmen-use-docker-compose)
+
+3. 더미데이터(테스트 데이터)
+- [Pythonメモ : fakerでテストデータを生成する](https://wonderwall.hatenablog.com/entry/2017/07/24/182522)
+- [joke2k/faker](https://github.com/joke2k/faker)
 
 ## 트러블슈팅
 1. Docker-compose build 시 "no such file or directory"발생시 대응
