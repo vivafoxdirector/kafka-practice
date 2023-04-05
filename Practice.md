@@ -142,9 +142,73 @@ https://docs.confluent.io/platform/current/platform-quickstart.html#quick-start-
 
 ### 토픽 작성
 ```s
-$ 
+# 토픽 "topic-01" 생성
+$ docker exec -it broker /bin/bash
+/> kafka-topics --bootstrap-server broker:9092 --create --topic topic-01 --partitions 3 replication-factor 1
+
+# 토픽 확인
+/> kafka-topics --bootstrap-server borker:9092 --describe --topic topic-01
 ```
 
+### Producer 컨테이너 작성
+1. Producer 디렉토리 구조
+새롭게 Producer 작성하고, Python프로그램 가동 컨테이너로 구성하도록 한다.
+```s
+$ tree
+.
+├─ Dockerfile
+├─ docker-compose.yml
+├─ opt
+│    └─ IoTSampleDate-v2.py
+└─ requirements.txt
+```
+
+2. docker-compose.yml 작성
+```s
+version: '3'
+services:
+  iot:
+    build: .
+    working_dir: '/app/'
+    tty: true
+    volumes:
+      - ./opt:/app/opt
+
+networks:
+  default:
+    external:
+      name: iot_network
+
+```
+
+3. DockerFile 작성
+```s
+FROM python:3.7.5-slim
+USER root
+
+RUN apt-get update
+RUN apt-get -y install locales && localedef -f UTF-8 -i ko_KR ko_KR.UTF-8
+
+ENV LANG ko_KR.UTF-8
+ENV LANGUAGE ko_KR:ko
+ENV LC_ALL ko_KR.UTF-8
+ENV TERM xterm
+
+# 이거 설정 안하면 docker-compose build 시 "No such file or directory" 오류 발생됨
+# http://pixelbeat.jp/could-not-open-requirements-file-with-docker-using-python/
+COPY requirements.txt .
+
+RUN apt-get install -y vim less
+RUN pip install --upgrade pip
+RUN pip install --upgrade setuptools
+RUN pip install -r requirements.txt
+```
+
+3. requirements.txt 작성
+```s
+faker
+kafka-python
+```
 
 # 참조사이트
 ## 강좌(20230327)
@@ -157,3 +221,7 @@ $
 - [KafkaをローカルのDocker環境で、さくっと動かしてみました 　第２回](https://qiita.com/turupon/items/59eb602766a38bc3b621)
 
 - [Apache Kafkaとは](https://zenn.dev/gekal/articles/kafka-env-for-local-developmen-use-docker-compose)
+
+## 트러블슈팅
+1. Docker-compose build 시 "no such file or directory"발생시 대응
+- [[Docker/Python]Could not open requirements file: [Errno 2] No such file or directory: でDocker buildに失敗したときの対処法](http://pixelbeat.jp/could-not-open-requirements-file-with-docker-using-python/)
