@@ -18,7 +18,7 @@ from kafka import KafkaConsumer
 # 터미널 작성을 위해서 Faker 사용
 Faker = Factory.create
 fake = Faker()
-fake = Faker("ja_JP")
+# fake = Faker("ja_JP")
 
 # IoT기기 더비 섹션(소문자 정의)
 section = string.ascii_uppercase
