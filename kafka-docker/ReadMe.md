@@ -88,6 +88,7 @@ https://docs.confluent.io/platform/current/platform-quickstart.html#quick-start-
 2. Consumer 작성
 3. Producer 작성
 4. Consumer & Producer 메시지 송수신 확인
+![구성도](./assets/practice1.avif)
 
 ### topic 작성
 * 컨테이너 확인
@@ -139,6 +140,7 @@ https://docs.confluent.io/platform/current/platform-quickstart.html#quick-start-
 
 ## Kafka 응용
 위 기본적인 동작을 기반으로 응용하는 방법에 대해서 알아본다.
+![구성도](./assets/practice2.avif)
 
 ### 토픽 작성
 ```s
@@ -233,6 +235,28 @@ $ docker exec -it cli /bin/bash
 # Consumer로서 메시지 수신 설정
 /> kafka-console-consumer --bootstrap-server broker:29092 --topic topic-01 --group G1 --from-beginning
 ```
+
+### Producer 메소지 송신
+- Producer 기동시키고 데이터 생성 프로그램을 작성한다. OSS인 [Faker](https://github.com/joke2k/faker)라이브러리를 이용하여 Json 형태의 더미 데이터를 생성하는 Python프로그램을 작성한다.
+- 소스 : [IotSampleData-v1.py](./kafka-docker/opt/IotSampleData-v1.py)
+
+- 더미 데이터 생성해서 송신하기 위해서 별도의 터미널에서 Producerr에 접속하여 프로그램을 기동한다.
+  ```s
+  $ docker exec -it iotsampledata_iot_1 /bin/bash
+  /> cd /app/opt
+  /> python IoTSampleData-v1.py --mode kf
+  ```
+- Consumer 프롬프트에서 Producer가 송신한 메시지를 확인한다.
+
+## Kafka의 KSQL 적용
+KSQL을 사용해서 Producer가 송신한 데이터를 특정 조건을 부여하여 추출하는 예제를 만들도록 한다.
+간단한 구성도는 아래와 같다.
+![구성도](./assets/practice3.avif)
+
+### KSQL컨테이너 작성
+앞서 작성한 docker-compose.yaml에 ksql-server(KSQL서버)와 ksql-cli(KSQL클라이언트) 컨테이너 정의를 추가한다.
+
+
 
 # 참조사이트
 ## 강좌(20230327)
