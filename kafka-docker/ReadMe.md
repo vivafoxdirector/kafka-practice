@@ -98,7 +98,7 @@ https://docs.confluent.io/platform/current/platform-quickstart.html#quick-start-
 * topic 작성
   ```s
   $ docker exec -it broker /bin/bash
-  > kafka-topics --bootstrap-server broker:9092 --create --topic sample-topic --partition 3 replication-factor 1
+  > kafka-topics --bootstrap-server broker:9092 --create --topic sample-topic --partitions 3 replication-factor 1
   ```
 
 * topic 확인
@@ -199,6 +199,7 @@ ENV TERM xterm
 # 이거 설정 안하면 docker-compose build 시 "No such file or directory" 오류 발생됨
 # http://pixelbeat.jp/could-not-open-requirements-file-with-docker-using-python/
 COPY requirements.txt .
+COPY ./opt/IoTSampleDate-v2.py /app/opt
 
 RUN apt-get install -y vim less
 RUN pip install --upgrade pip
@@ -365,6 +366,10 @@ $ docker exec -it ksql-cli /bin/bash
 
 2. ksql-cli에서 ksql-server로 접속
 ```s
+# SSL이 사용하지 않는 경우
+/> ksql http://ksql-server:8088
+
+# SSL을 사용하는 경우
 /> ksql https://ksql-server:8088
 ```
 
