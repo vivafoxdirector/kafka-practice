@@ -371,14 +371,36 @@ $ docker exec -it ksql-cli /bin/bash
 3. Producer 에서 전송된 데이터(topic-01)의 스트림(topic01_stream1) 작성
 ```s
 # topic01_stream1 작성
-ksql> CREATE STREAM topic01_stream1 (id INT, time VARCHAR, proc VARCHAR, section VARCHAR, iot_num VARCHAR, iot_state VARCHAR, vol_1 DOUBLE, vol_2 DOUBLE) WITH (KAFKA_TOPIC = 'topic-01', VALUE_FORMAT='JSON', KEY='section');
+ksql> 
+CREATE STREAM topic01_stream1 (
+  id INT, 
+  time VARCHAR, 
+  proc VARCHAR, 
+  section VARCHAR, 
+  iot_num VARCHAR, 
+  iot_state VARCHAR, 
+  vol_1 DOUBLE, 
+  vol_2 DOUBLE
+) WITH (KAFKA_TOPIC = 'topic-01', VALUE_FORMAT='JSON', KEY='section');
 
 # topic01_stream1 정보 확인
 ksql> describe extended topic01_stream1;
 
 # (topic01_stream1)의 스트림 데이터를 아래의 조건으로 추출하고, 그 결과를 topic-11로 송신하는 스트림 (topic01_stream2)을 작성한다.
 # 추출조건: section='E' OR section='C' OR section='W'
-ksql> CREATE STREAM topic01_stream2 WITH (KAFKA_TOPIC = 'topic-11', VALUE_FORMAT='JSON') AS SELECT t01s1.section as section, t01s1.time as time, t01s1.proc as proc, t01s1.iot_num as iot_num,  t01s1.iot_state as iot_state, t01s1.vol_1 as vol_1, t01s1.vol_2 as vol_2 FROM  topic01_stream1 t01s1 WHERE section='E' OR section='C' OR section='W';
+ksql> 
+CREATE STREAM topic01_stream2 
+WITH (KAFKA_TOPIC = 'topic-11', VALUE_FORMAT='JSON') AS 
+  SELECT 
+    t01s1.section as section, 
+    t01s1.time as time, 
+    t01s1.proc as proc, 
+    t01s1.iot_num as iot_num, 
+    t01s1.iot_state as iot_state, 
+    t01s1.vol_1 as vol_1, 
+    t01s1.vol_2 as vol_2 
+  FROM topic01_stream1 t01s1 
+  WHERE section='E' OR section='C' OR section='W';
 
 # topic01_stream2 정보 확인
 ksql> describe extended topic01_stream2;
@@ -406,6 +428,21 @@ $ docker exec -it iotsampledata_iot_1 /bin/bash
 ksql> select * from topic01_stream2 emit changes;
 ```
 
+## KSQL에서 추출한 데이터를 수신하는 Consumer를 Python으로 기동
+![구성도](./assets/practice4.avif)
+
+### Consumer 컨테이너 작성
+topic-11에서 추출한 데이터를 수신하기 위해서 새롭게 Consumer컨테이너를 작성한다.
+1. 컨테이너 구성도
+```
+$ tree
+.
+├─
+
+
+
+```
+
 # 참조사이트
 ## 강좌(20230327)
 1. 아키텍처 & 튜닝포인트
@@ -425,3 +462,12 @@ ksql> select * from topic01_stream2 emit changes;
 ## 트러블슈팅
 1. Docker-compose build 시 "no such file or directory"발생시 대응
 - [[Docker/Python]Could not open requirements file: [Errno 2] No such file or directory: でDocker buildに失敗したときの対処法](http://pixelbeat.jp/could-not-open-requirements-file-with-docker-using-python/)
+
+
+
+
+├
+─
+└
+│
+
