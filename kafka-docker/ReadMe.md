@@ -435,6 +435,7 @@ ksql> select * from topic01_stream2 emit changes;
 
 ## KSQL에서 추출한 데이터를 수신하는 Consumer를 Python으로 기동
 ![구성도](./assets/practice4.avif)
+- [KafkaをローカルのDocker環境で、さくっと動かしてみました 　第５回](https://qiita.com/turupon/items/bd27834a42dda865469d)
 
 ### Consumer 컨테이너 작성
 topic-11에서 추출한 데이터를 수신하기 위해서 새롭게 Consumer컨테이너를 작성한다.
