@@ -440,13 +440,40 @@ ksql> select * from topic01_stream2 emit changes;
 ### Consumer 컨테이너 작성
 topic-11에서 추출한 데이터를 수신하기 위해서 새롭게 Consumer컨테이너를 작성한다.
 1. 컨테이너 구성도
-```
+```s
 $ tree
 .
-├─
+├─ Dockerfile
+├─ docker-compose.yml
+├─ opt
+│   └ IoTTpicData-v1.py
+└─ requirements.txt
+```
 
+2. docker-compose.yml
+```yml
+version: '3'
+services:
+  iot:
+    build: .
+    working_dir: '/app/'
+    tty: true
+    volumes:
+      - ./opt:/app/opt
 
+networks:
+  default:
+    external:
+      name: iot_network
+```
 
+3. Dockerfile
+```yml
+FROM python:3.7.5-slim
+USER root
+
+RUN apt-run update
+RUN apt-get -y intall locales && localedef
 ```
 
 # 참조사이트
@@ -468,8 +495,6 @@ $ tree
 ## 트러블슈팅
 1. Docker-compose build 시 "no such file or directory"발생시 대응
 - [[Docker/Python]Could not open requirements file: [Errno 2] No such file or directory: でDocker buildに失敗したときの対処法](http://pixelbeat.jp/could-not-open-requirements-file-with-docker-using-python/)
-
-
 
 
 ├
