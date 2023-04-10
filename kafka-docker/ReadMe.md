@@ -490,6 +490,29 @@ RUN pip install --upgrade setuptools
 RUN pip install -r requirements.txt
 ```
 
+4. requirements.txt
+```
+kafka-python
+```
+
+### Cosumer 컨테이너 작성 및 확인
+```s
+# 컨테이너 빌드
+$ docker-compose up -d
+creating ...
+
+# 컨테이너 확인
+$ docker-compose ps
+
+# 모든 컨테이너 확인
+$ docker ps
+```
+
+### Consumer에서 기동되는 프로그램 작성
+- 소스 : [IotSampleData-v1.py](./kafka-docker/opt/IotSampleData-v1.py)
+```s
+
+```
 # 참조사이트
 ## 강좌(20230327)
 1. 아키텍처 & 튜닝포인트
