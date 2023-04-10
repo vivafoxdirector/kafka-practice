@@ -120,3 +120,9 @@ Broker로의 읽기(수신)/쓰기(송신)는 어쨓든 빠르다. LinkedIn 벤�
   * https://adtech.cyberagent.io/scalablog/2015/07/17/kafka%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%81%E3%83%A3%E3%83%83%E3%83%88%E3%83%84%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%BE%E3%81%97%E3%81%9F/
   * https://qiita.com/bwtakacy/items/d1345e10d2adbd4b4431
   * https://qiita.com/ttsubo/items/3ae7ee8b34bb62879613
+
+
+### 동여상 강좌
+[Spring Boot Kafka Microservices - #12 - Configure Kafka Consumer in StockService Microservice](https://www.youtube.com/watch?v=xIQheshTUVU&ab_channel=JavaGuides)
+https://www.youtube.com/watch?v=Xe7K1biKcs0&ab_channel=SpringDeveloper
+https://www.youtube.com/watch?v=puIJ1Mn9_LE&t=3674s&ab_channel=SpringDeveloper
