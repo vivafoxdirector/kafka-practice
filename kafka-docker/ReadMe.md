@@ -547,6 +547,14 @@ Consumer 프롬프트에서 Producer가 송신한 데이터가 표시되는 것�
 # 아래 Producer 에서 전송된 메시지 출력된다.
 ```
 
+## 프로그램 확장
+지난 시간까지 Consumer 상에 Python을 이용하여 Topic-11데이터를 출력하는 방법에 대해서 알아 보았다. 이번에는 좀 더 프로그램을 확장해서 그 데이터를 S3에 올리는 방법에 대해서 알아 본다.
+S3를 사용하기 위해서는 Kafka S3 Connector(sink)를 사용하지 않고, Python프로그램상에서 boto3를 사용하는 것으로 한다.
+![구성도](./assets/practice5.avif)
+- [KafkaをローカルのDocker環境で、さくっと動かしてみました 　第6回](https://qiita.com/turupon/items/5714c2cd45badd08f00b)
+
+
+
 # 참조사이트
 ## 강좌(20230327)
 1. 아키텍처 & 튜닝포인트
