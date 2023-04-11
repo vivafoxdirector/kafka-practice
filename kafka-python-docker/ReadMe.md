@@ -551,6 +551,48 @@ Consumer 프롬프트에서 Producer가 송신한 데이터가 표시되는 것�
 ![구성도](./assets/practice6.avif)
 - [KafkaをローカルのDocker環境で、さくっと動かしてみました 　第7回](https://qiita.com/turupon/items/7f50d7b453a02989b88c)
 
+### Consumer 메시지 수신 설정
+```s
+# Consumer 연결
+$ docker exec -it iottopicdata_ktp_1 /bin/bash
+/> cd /app/opt
+
+# python 실행해서 데이터 수신 대기 상태에 들어간다.
+/> python IoTTopicData-v1.py --mode tm
+```
+
+### 2개의 Producer 컨테이너 기동
+```s
+# Producer 2개를 docker-compose명령어를 통해서 기동시킨다.
+$ docker-compose up -d --scale iot=2
+
+# Producer 2개 컨테이너 확인
+$ docker-compose ps
+      Name          Command   State   Ports
+---------------------------------------------
+iotsampledata_iot_1 python3   up
+iotsampledata_iot_2 python3   up
+```
+
+### 2개의 Producer에서 메시지 송신
+동시에 2개의 컨테이너 프로그램을 실행시키기 위해서 스크립트를 작성하도록 한다.
+각각 500건의 데이터를 송신하는 것으로 설정하고, 어느 컨테이너에서 송신을 했는지 식별할 수 있도록 --proc 1111 or 2222 로 설정하도록 한다.
+```s
+iot_multi.sh
+#!/bin/bash
+docker exec iotsampledata_iot_1 python /app/opt/IoTSampleData-v2.py --mode kf --proc 1111 --count 500 &
+docker exec iotsampledata_iot_2 python /app/opt/IoTSampleData-v2.py --mode kf --proc 2222 --count 500
+```
+iot_multi.sh 를 실행한다.
+```s
+$ ./iot_multi.sh
+```
+
+### Consumer에서 Producer가 송신한 데이터가 수신되는지 확인
+```s
+/> python IoTTopicData-v1.py --mode tm
+```
+
 
 ## Consumer에서 Python을 통해서 결과를 S3에 올려보자 (S3 크레덴셜이 필요하다.) 
 지난 시간까지 Consumer 상에 Python을 이용하여 Topic-11데이터를 출력하는 방법에 대해서 알아 보았다. 이번에는 좀 더 프로그램을 확장해서 그 데이터를 S3에 올리는 방법에 대해서 알아 본다.
