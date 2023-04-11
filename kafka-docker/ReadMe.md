@@ -239,7 +239,7 @@ $ docker exec -it cli /bin/bash
 
 ### Producer 메소지 송신
 - Producer 기동시키고 데이터 생성 프로그램을 작성한다. OSS인 [Faker](https://github.com/joke2k/faker)라이브러리를 이용하여 Json 형태의 더미 데이터를 생성하는 Python프로그램을 작성한다.
-- 소스 : [IotSampleData-v1.py](./kafka-docker/opt/IotSampleData-v1.py)
+- 소스 : [IotSampleData-v1.py](./02_sample-compose/opt/IotSampleData-v1.py)
 
 - 더미 데이터 생성해서 송신하기 위해서 별도의 터미널에서 Producerr에 접속하여 프로그램을 기동한다.
   ```s
@@ -509,10 +509,44 @@ $ docker ps
 ```
 
 ### Consumer에서 기동되는 프로그램 작성
-- 소스 : [IotSampleData-v1.py](./kafka-docker/opt/IotSampleData-v1.py)
-```s
+지금까지 작성한 토픽등을 정리해본다. 토픽 topic-01을 생성하고, Producer역할을 하는 Python을 이용하여 topic-01에 송신하는 프로그램을 작성하였다.
+그리고, KSQL을 통해서 topic-01의 내용을 특정 내용을 필터하여 다시 topic-11로 전송하는 환경도 구성하였다. 즉, 정리하면 아래와 같은 구성이 된다.
 
+[Producer]Python -> [Topic]Topic-01 -> KSQL -> [Topic]Topic-11 -> [Consumer]Python
+
+위 구성에서 [Consumer]Python을 작성하고 소스는 아래를 참조한다.
+- 소스 : [IotSampleData-v1.py](./03_sample-compose/opt/IotSampleData-v1.py)
+
+### Consumer메시지 수신 설정
+데이터를 수신받기 위해 Consumer에 접속하여 프로그램 디렉토리로 이동한다.
+```s
+# Consumer 컨테이너 이동
+$ docker exec -it iottopicdata_ktp_1 /bin/bash
+/>
+
+# Python 실행
+/> cd /app/opt/
+/> python IotTopicData-v1.py --mode tm
+# 데이터 수신을 기다리는 상태가 된다.
 ```
+
+### Producer 메시시 송신 
+데이터를 송신하기 위해 별도의 터미널을 기동해서, Producer에 접속하고, Python 프로그램이 있는 디렉토리로 이동
+```s
+$ docker exec -it IoTSampledata_iot_1 /bin/bash
+# Python 실행, 생성 데이터 송신한다.
+/> cd /app/opt
+/> python IoTSampleData-v1.py --mode kf --count 30
+```
+
+### 확인
+Consumer 프롬프트에서 Producer가 송신한 데이터가 표시되는 것을 확인한다.
+```s
+# 아래는 위 Consumer에서 실행된 상태
+/> python IoTTopicData-v1.py --mode tm  
+# 아래 Producer 에서 전송된 메시지 출력된다.
+```
+
 # 참조사이트
 ## 강좌(20230327)
 1. 아키텍처 & 튜닝포인트
