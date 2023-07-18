@@ -617,6 +617,27 @@ S3를 사용하기 위해서는 Kafka S3 Connector(sink)를 사용하지 않고,
 - [Pythonメモ : fakerでテストデータを生成する](https://wonderwall.hatenablog.com/entry/2017/07/24/182522)
 - [joke2k/faker](https://github.com/joke2k/faker)
 
+## AWS MSK (20230718)
+* MSK
+- [【初心者】Amazon Managed Streaming for Apache Kafka (MSK) / MSK Serverless を使ってみる](https://qiita.com/mksamba/items/a73542200ac3facac44c)
+
+- [【AWS】Amazon MSK ～ 基本編 / Connector ～](https://dk521123.hatenablog.com/entry/2023/05/20/003516)
+- [Amazon MSK ～ 入門編 ～](https://dk521123.hatenablog.com/entry/2023/04/21/000000)
+- [Amazon MSK ～ AWS CLI ～](https://dk521123.hatenablog.com/entry/2023/06/03/003941)
+- [Terraform ～ AWS MSK ～](https://dk521123.hatenablog.com/entry/2023/05/14/122215)
+- [Apache Kafka ～ 環境構築編 ～](https://dk521123.hatenablog.com/entry/2023/04/23/235534)
+- [Apache Kafka ～ 環境構築 / Docker compose編 ～](https://dk521123.hatenablog.com/entry/2023/04/24/153846)
+- [Apache Kafka ～ 基礎知識編 ～](https://dk521123.hatenablog.com/entry/2023/04/26/103421)
+- [Apache Kafka ～ Kafkaコマンド ～](https://dk521123.hatenablog.com/entry/2023/05/16/000000)
+- [Apache Kafka ～ Kafka Connect ～](https://dk521123.hatenablog.com/entry/2023/04/29/185133)
+- [Apache Kafka ～ Kafka Connect / PostgreSQL ～](https://dk521123.hatenablog.com/entry/2023/05/02/233806)
+- [Apache Kafka ～ Strimzi ～](https://dk521123.hatenablog.com/entry/2023/05/08/000133)
+- [Apache Kafka ～ パフォーマンスチューニング ～](https://dk521123.hatenablog.com/entry/2023/05/28/151212)
+- [Scala ～ Apache Kafka / Producer ～](https://)dk521123.hatenablog.com/entry/2023/04/27/235703)
+- [Scala ～ Apache Kafka / Consumer ～](https://dk521123.hatenablog.com/entry/2023/04/28/014737)
+- [Terraform ～ AWS EC2 ～](https://dk521123.hatenablog.com/entry/2023/05/21/003048)
+- [curl コマンド](https://dk521123.hatenablog.com/entry/2017/12/05/233100)
+
 ## 트러블슈팅
 1. Docker-compose build 시 "no such file or directory"발생시 대응
 - [[Docker/Python]Could not open requirements file: [Errno 2] No such file or directory: でDocker buildに失敗したときの対処法](http://pixelbeat.jp/could-not-open-requirements-file-with-docker-using-python/)
