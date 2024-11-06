@@ -111,12 +111,21 @@ Broker로의 읽기(수신)/쓰기(송신)는 어쨓든 빠르다. LinkedIn 벤�
 
 # 참조사이트
 
+## 모니터링
+* TUI
+  * [kaskade](https://github.com/vivafoxdirector/kaskade)
+* WebUI
+  * [kafka-ui](https://github.com/provectus/kafka-ui)
 ## 강좌(20230327)
 1. 아키텍처 & 튜닝포인트
 - [Apache Kafkaの概要とアーキテクチャ](https://qiita.com/sigmalist/items/5a26ab519cbdf1e07af3)
 - [아키텍처문서PDF](https://www.ospn.jp/osc2017.enterprise/pdf/OSC2017.enterprise_Hitachi_Kafka.pdf)
+- [2023-Apache Kafka 超入門](https://qiita.com/ist-a-ku/items/2d8d5ea448b38224dd99)
+- [2024-Apache Kafka に入門してみる](https://zenn.dev/0kate/scraps/3c0f8868d5069d)
+- [kafkaの基礎知識](https://ibm.github.io/japan-technology/Code-Articles/event-streams-kafka-fundamentals/)
+- [Kafka Acks再入門](https://confluent-jp.github.io/community/blog/kafka-acks-explained/)
 
-2. 실습
+1. 실습
 - [KafkaをローカルのDocker環境で、さくっと動かしてみました 　第１回](https://qiita.com/turupon/items/12268ddb95ecd7b7ae07)
 - [KafkaをローカルのDocker環境で、さくっと動かしてみました 　第２回](https://qiita.com/turupon/items/59eb602766a38bc3b621)
 
